@@ -1,1 +1,3 @@
-# Shopping Cart - React- Typescript- MaterialUI - React Query
+# Shopping Cart 
+
+## React- Typescript- MaterialUI - React Query - Styled Components
