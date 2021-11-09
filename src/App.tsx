@@ -12,7 +12,6 @@ import Badge from "@material-ui/core/Badge";
 
 // Styles
 import { Wrapper, StyledButton } from "./App.styles";
-import CartItem from "./CartItem/CartItem";
 
 // Types
 export type CartItemType = {
@@ -58,7 +57,18 @@ const App = () => {
     return;
   };
 
-  const handleRemoveFromCart = () => null;
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems(prev =>
+      prev.reduce((acc, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return acc;
+          return [...acc, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...acc, item];
+        }
+      }, [] as CartItemType[])
+    );
+  };
 
   console.log(data);
   if (isLoading) return <LinearProgress />;
